@@ -2,9 +2,8 @@
 
 # Proyectos echos con Angular 5/6.
 
-    -ang-crud-firebase-toast: Proyecto CRUD echo con Angular, Bootstrap 4, Firebase y toastr.
-    -website : Proyecto echo con Angular, Bootstrap.
-    
+   - ang-crud-firebase-toast: Proyecto CRUD echo con Angular, Bootstrap 4, Firebase y toastr.
+   - website : Proyecto echo con Angular, Bootstrap.
     
 # Comandos git para subir proyectos.
 
