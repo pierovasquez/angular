@@ -1,6 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
+//Animatios -> toastr
+import { BrowserAnimationsModule } from  '@angular/platform-browser/animations';
+import { ToastrModule} from 'ngx-toastr'
+
 import { AppComponent } from './app.component';
 
 // Firebase. Imports necesarios para poder utilizar firebase
@@ -25,7 +31,10 @@ import { ProductService } from './services/product.service';
   imports: [
     BrowserModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     ProductService
