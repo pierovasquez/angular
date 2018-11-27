@@ -1,5 +1,8 @@
 # Angular
 
+   Before all, if you want to download any of my projects and run it. You will have to run "npm i" command before "ng serve" in the cmd.
+   That's because the node_modules folder is way to heavy and I didn't uploaded.
+
 # Proyectos echos con Angular 5/6.
 
    - ang-crud-firebase-toast: Proyecto CRUD echo con Angular, Bootstrap 4, Firebase y toastr.
