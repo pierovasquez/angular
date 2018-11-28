@@ -18,7 +18,8 @@ export class ProductService {
 
   getProducts() {
     //Aqui se rellena el array productList y todas los datos se guardaran en una coleccion llamada products
-    return this.productList = this.firebase.list('products');
+    this.productList = this.firebase.list('products');
+    return this.productList;
   }
 
   insertProduct(product: Product) {

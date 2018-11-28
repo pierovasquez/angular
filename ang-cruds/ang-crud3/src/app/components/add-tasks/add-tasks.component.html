@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-content">
+    <h6 class="card-title">Add task</h6>
+    <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+      <div class="row">
+        <input type="hidden" name="$key" #key="ngModel" [(ngModel)]="taskService.selectedTask.$key">
+        <div class="input-field col-s6">
+          <input type="text" 
+            placeholder="Add title" 
+            name="title"
+            #name ="ngModel" 
+            [(ngModel)]="taskService.selectedTask.title">
+        </div>
+        <div class="input-field col-s6">
+            <input type="text" 
+            placeholder="Add description" 
+            name="title" 
+            #description="ngModel"
+            [(ngModel)]="taskService.selectedTask.description">
+          </div>
+      </div>
+      <input type="submit" class="btn btn-light">
+      <input type="reset" class="btn btn-light" (click)="resetForm(taskForm)">
+    </form>
+  </div>
+</div>
