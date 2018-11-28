@@ -21,6 +21,7 @@ export class AddTasksComponent implements OnInit {
 
   onSubmit(taskForm: NgForm) {
     if(taskForm.value.$key == null) {
+      console.log(taskForm);
       this.taskService.insertTask(taskForm.value);
     }else{
       this.taskService.updateTask(taskForm.value);

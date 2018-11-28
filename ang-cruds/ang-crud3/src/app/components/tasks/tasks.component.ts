@@ -15,6 +15,28 @@ export class TasksComponent implements OnInit {
 
   constructor(private taskService: TaskService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.taskService.getTasks()
+    .snapshotChanges()
+    .subscribe(item => {
+      this.tasks = [];
+      item.forEach(element =>{
+        let x = element.payload.toJSON();
+        console.log(x);
+        x['$key'] = element.key;
+        this.tasks.push(x as Task)
+      });
+    });
+  }
 
+  deleteTask($key:string) {
+    if(confirm('Are you sure?')) {
+      this.taskService.deleteTask($key);
+    }
+    return;
+  }
+
+  updateTask(task: Task) {
+    
+  }
 }
