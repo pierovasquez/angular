@@ -26,7 +26,8 @@ export class TodoComponent implements OnInit {
         x['$key'] = element.key;
         this.todoListArray.push(x);
       });
-      //la funcion sort sirve para ordenar. Los elementos que son false los deja arriba y los true abajo.
+      // La funcion sort sirve para ordenar. Los elementos que son false los deja arriba y los true abajo.
+      // Cuando una tarea cambia a true, se la asigna al final de la cola
       this.todoListArray.sort((a, b) =>{
         return a.isChecked - b.isChecked;
       })
