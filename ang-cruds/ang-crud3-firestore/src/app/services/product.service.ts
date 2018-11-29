@@ -55,4 +55,9 @@ export class ProductService {
     this.productDoc = this.db.doc(`products/${product.id}`);
     this.productDoc.delete();
   }
+
+  updateProduct(product: Product) {
+    this.productDoc = this.db.doc(`products/${product.id}`);
+    this.productDoc.update(product);
+  }
 }
