@@ -41,8 +41,12 @@ export class LoginPageComponent implements OnInit {
   onClickLoginGoogle() {
     this.service.loginGoogle()
     .then( (res) =>{
+      this.flashMessages.show('Usuario logeado correctamente',
+      {cssClass: 'alert-success', timeout: 4000});
       this.router.navigate(['private']);
     }).catch( err =>{
+      this.flashMessages.show(err.message,
+        {cssClass: 'alert-danger', timeout: 4000});
       console.log(err.message);
     })
   }
@@ -52,6 +56,8 @@ export class LoginPageComponent implements OnInit {
   onClickLoginFacebook() {
     this.service.loginFacebook()
     .then( (res) =>{
+      this.flashMessages.show('Usuario logeado correctamente',
+      {cssClass: 'alert-success', timeout: 4000});
       this.router.navigate(['private']);
     }).catch( err =>{
       console.log(err.message);
