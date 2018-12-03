@@ -37,4 +37,13 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['/login'])
     })
   }
+
+  onClickLoginGoogle() {
+    this.service.loginGoogle()
+    .then( (res) =>{
+      this.router.navigate(['private']);
+    }).catch( err =>{
+      console.log(err.message);
+    })
+  }
 }
