@@ -1,9 +1,23 @@
 import { Injectable } from '@angular/core';
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(
+    public afAuth: AngularFireAuth
+  ) { }
+
+  registerUser(email: string, password: string) {
+    
+  }
+
+
+
+  logOut() {
+
+    return this.afAuth.auth.signOut()
+  }
 }
