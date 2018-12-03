@@ -55,6 +55,19 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['private']);
     }).catch( err =>{
       console.log(err.message);
+      this.flashMessages.show(err.message,
+        {cssClass: 'alert-danger', timeout: 4000});
+    })
+  }
+
+  onClickLoginTwitter() {
+    this.service.loginTwitter()
+    .then( (res) =>{
+      this.router.navigate(['private']);
+    }).catch( err =>{
+      console.log(err.message);
+      this.flashMessages.show(err.message,
+        {cssClass: 'alert-danger', timeout: 4000});
     })
   }
 }
