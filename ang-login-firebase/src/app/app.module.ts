@@ -7,6 +7,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment} from '../environments/environment';
 
+// Messages. import i --save angular2-flash-messages
+import {FlashMessagesModule} from 'angular2-flash-messages';
+import { FlashMessagesService} from 'angular2-flash-messages';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
@@ -35,10 +39,11 @@ import { AuthGuard } from './guards/auth.guard'
     AppRoutingModule,
     FormsModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    FlashMessagesModule
     
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

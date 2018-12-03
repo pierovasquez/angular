@@ -32,7 +32,7 @@ export class AuthService {
 
   getAuth() {
     // Retorna si esta logeado o no algun usuario.
-    //Se utiliza pipe en las versiones 6 o superiores de Angular
+    // Se utiliza pipe en las versiones 6 o superiores de Angular
     return this.afAuth.authState.pipe(map( auth => auth));
     
   }
