@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   public isLogin: boolean;
   public userName: string;
   public email: string;
-  private userPhoto: string;
+  public userPhoto: string;
 
   constructor(
     private service: AuthService

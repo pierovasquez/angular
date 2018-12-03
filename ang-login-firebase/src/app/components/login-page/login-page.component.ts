@@ -46,4 +46,15 @@ export class LoginPageComponent implements OnInit {
       console.log(err.message);
     })
   }
+
+  // Para hacer el login con Facebook, antes tenemos que ir a facebook developers y con nuestra cuenta modificar
+  // algunos campos y conectarlo con firebase.
+  onClickLoginFacebook() {
+    this.service.loginFacebook()
+    .then( (res) =>{
+      this.router.navigate(['private']);
+    }).catch( err =>{
+      console.log(err.message);
+    })
+  }
 }
