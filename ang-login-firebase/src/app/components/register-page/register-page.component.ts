@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterPageComponent implements OnInit {
 
-  //Gracias al data binding, obtenemos en las siguientes variables los valores incluidos en los inputs. 
+  // Habilitar el metodo de incio de sesion por correo electronico en Firebase.
+  // Gracias al data binding, obtenemos en las siguientes variables los valores incluidos en los inputs. 
   public email:string;
   public password:string;
 
@@ -25,6 +26,8 @@ export class RegisterPageComponent implements OnInit {
     .then ( (res) =>{
       console.log('REGISTRADO');
       console.log(res);
+      // Para utilizar el navigate tenemos que importar el Router.
+      this.router.navigate(['/private'])
     })
     .catch( (err) =>{
       console.log(err);

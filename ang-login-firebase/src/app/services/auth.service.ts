@@ -31,7 +31,9 @@ export class AuthService {
   }
 
   getAuth() {
+    // Retorna si esta logeado o no algun usuario.
     return this.afAuth.authState.pipe(map( auth => auth));
+    
   }
 
 
