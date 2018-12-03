@@ -52,6 +52,5 @@ export class AuthService {
 
   loginTwitter() {
     return this.afAuth.auth.signInWithPopup( new firebase.auth.TwitterAuthProvider());
->>>>>>> 7810758f5e31516d870deff9a555c999102d5f0d
   }
 }
