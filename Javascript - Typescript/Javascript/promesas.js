@@ -9,6 +9,7 @@ function requestHandler(request,response) {
     .then(function(user) {
         res.send(user);
     })
+    .then()
     .catch(function (err) {
         res.send(err);
     })
