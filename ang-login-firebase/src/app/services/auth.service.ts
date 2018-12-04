@@ -13,7 +13,6 @@ export class AuthService {
   ) { }
 
   registerUser(email: string, password: string) {
-
     //TODO: Promesas
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(email, password)

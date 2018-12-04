@@ -26,6 +26,7 @@ export class LoginPageComponent implements OnInit {
   onSubmitLogin() {
     this.service.loginUser(this.email,this.password)
     .then( (response) =>{
+      console.log(response),
       this.flashMessages.show('Usuario logeado correctamente',
       {cssClass: 'alert-success', timeout: 4000});
       this.router.navigate(['/private']);
