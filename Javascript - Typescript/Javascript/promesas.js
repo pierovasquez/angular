@@ -7,9 +7,15 @@
 function requestHandler(request,response) {
     URLSearchParams.findById(request.userId)
     .then(function(user) {
-        res.send(user);
+        return Tasks.findById(user.tasksId)
     })
-    .then()
+    .then(function (tasks) {
+      tasks.completed = true;
+      return tasks.save();  
+    })
+    .then(function () {
+        res.send('Tasks completed')
+    })
     .catch(function (err) {
         res.send(err);
     })
