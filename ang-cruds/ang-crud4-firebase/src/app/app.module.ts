@@ -14,7 +14,11 @@ import { EditComponent } from './components/edit/edit.component';
 import { LoginComponent } from './components/login/login.component';
 
 //Services
-import { AuthService } from './services/auth.service'
+import { AuthService } from './services/auth.service';
+import { RecetaService } from './services/receta.service'
+
+//Guards
+import { AuthGuard } from './guards/auth.guard'
 
 //Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -42,7 +46,7 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard, RecetaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
