@@ -1,0 +1,1 @@
+// Con este archivo, almacenaremos datos dentro del local storage
