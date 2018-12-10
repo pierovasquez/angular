@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { RecetaInterface } from '../../models/Receta';
 import { RecetaService } from '../../services/receta.service';
-import { Observable } from 'rxjs';
 import {AuthService} from '../../services/auth.service';
 
 
