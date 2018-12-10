@@ -1,4 +1,4 @@
-export interface Curso {
+export interface CursoInterface {
     id?:string;
     nombre?:string;
     formador?:string;

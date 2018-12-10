@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Firebase
+import { environment} from '../environments/environment';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire'
+
+//Services
+import { CursoService } from './services/curso.service'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,9 +23,11 @@ import { AddCursoComponent } from './components/add-curso/add-curso.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [CursoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
