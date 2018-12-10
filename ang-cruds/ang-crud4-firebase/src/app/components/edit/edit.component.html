@@ -12,30 +12,30 @@
         <div class="col-md-10 mx-auto mt-3">
           <div class="card">
             <div class="card-header">
-              Nueva Receta
+              Editar Receta
             </div>
             <div class="card-body">
-              <form action="">
+              <form #formModificar="ngForm" (ngSubmit)="onModificarReceta(formModificar)">
                 <div class="form-group">
                   <label for="titulo">Titulo</label>
-                  <input type="text" name="titulo" id="titulo" class="form-control">
+                  <input type="text" name="titulo" id="titulo" class="form-control" [(ngModel)]="receta.titulo">
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripcion</label>
-                    <input type="text" name="descripcion" id="descripcion" class="form-control">
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" [(ngModel)]="receta.descripcion">
                 </div>
                 <div class="form-group">
                     <label for="ingredientes">Ingredientes</label>
-                    <textarea type="text" name="ingredientes" id="ingredientes" class="form-control"></textarea>
+                    <textarea type="text" name="ingredientes" id="ingredientes" class="form-control" [(ngModel)]="receta.ingredientes"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="preparacion">Preparación</label>
-                    <textarea type="text" name="preparacion" id="preparacion" class="form-control"></textarea>
+                    <textarea type="text" name="preparacion" id="preparacion" class="form-control" [(ngModel)]="receta.preparacion"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="temporada">Temporada</label>
-                    <span class="badge badge-pill badge-dark"></span>
-                    <select multiple="" name="temporada" id="temporada" class="form-control">
+                    <span class="badge badge-pill badge-dark" *ngFor="let item of receta.temporada">{{item}}</span>
+                    <select multiple="" name="temporada" id="temporada" class="form-control" [(ngModel)]="receta.temporada">
                       <option value="verano">Verano</option>
                       <option value="otoño">Otoño</option>
                       <option value="invierno">Invierno</option>

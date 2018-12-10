@@ -2,22 +2,23 @@
   <div class="col-md-10 blog-main">
     <div class="blog-post mt-3">
       <h1 class="blog-post-title border-bottom">{{receta.titulo}}</h1>
-      <p class="blog-post-meta">Fecha Por <a href="">Piero</a></p>
-      <p>DESCRIPCIÓN</p>
+      <p class="blog-post-meta">{{receta.fechaPublicacion | date: 'dd-MMM'}} Por <a href="">{{receta.userName}}</a></p>
+      <p>{{receta.descripcion}}</p>
       <blockquote>
-        <h2>Preparación</h2>
-        <p>PREPARACIÓN</p>
+        <h2>Preparacion</h2>
+        <p>{{receta.preparacion}}</p>
       </blockquote>
       <blockquote>
         <h2>INGREDIENTES</h2>
-        <p>Ingredientes receta</p>
+        <p>{{receta.ingredientes}}</p>
       </blockquote>
     </div>
   </div>
   <div class="col-md-2">
-    <div class="btn-group pull-right mt-3">
-      <a routerLink="/edit/" class="btn btn-dark">Editar</a>
-      <a href="/" class="btn btn-danger" (click)="onClickDelete()">Borrar</a>
+    <div class="btn-group pull-right mt-3" *ngIf="idUsuarioL == receta.userId">
+      <a routerLink="/edit/{{receta.id}}" class="btn btn-dark">Editar</a>
+      <!-- Si dejamos el href dentro del a, no se ejecutara el click si no ira primero al href.-->
+      <a class="btn btn-danger" (click)="onClickDelete()">Borrar</a>
     </div>
   </div>
 </div>
