@@ -27,8 +27,14 @@ export class AddCursoComponent implements OnInit {
   }
 
   onGuardarCurso(myForm: NgForm) {
-    const fechaNow = Date.now();
-    this.curso.fecha = fechaNow;
-    this.cursoservice.addCurso(this.curso)
- }
+    if (myForm.valid === true) {
+      const fechaNow = Date.now();
+      this.curso.fecha = fechaNow;
+      this.cursoservice.addCurso(this.curso);
+      myForm.resetForm();
+    } else {
+      console.log('Algo va mal');
+    }
+
+  }
 }

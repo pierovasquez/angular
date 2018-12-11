@@ -4,28 +4,53 @@
     <form (ngSubmit)="onGuardarCurso(formNew)" #formNew="ngForm" class="col s6">
       <div class="row">
         <div class="input-field col s6">
-          <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre del curso">
+          <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre del curso" minlength="8" maxlength="40" required>
           <label> Nombre</label>
+          <div *ngIf="nombre.touched && !nombre.valid">
+            <div *ngIf="nombre.errors.required">Nombre es requerido.</div>
+            <div *ngIf="nombre.errors.minlength">Nombre debe ser de al menos {{nombre.errors.minlength.requiredLength}} caracteres. </div>
+          </div>
         </div>
         <div class="input-field col s6">
-          <input [(ngModel)]="curso.descripcion" #descripcion="ngModel" type="text" name="descripcion" id="descripcion" placeholder="Descripcion del curso">
+          <input [(ngModel)]="curso.descripcion" #descripcion="ngModel" type="text" name="descripcion" id="descripcion" placeholder="Descripcion del curso" minlength="8" maxlength="40" required>
           <label> Descripcion</label>
+          <div *ngIf="descripcion.touched && !descripcion.valid">
+              <div *ngIf="descripcion.errors.required">Descripción es requerido.</div>
+              <div *ngIf="descripcion.errors.minlength">Descripción debe ser de al menos {{descripcion.errors.minlength.requiredLength}} caracteres. </div>
+          </div>
         </div>
         <div class="input-field col s6">
-          <input [(ngModel)]="curso.formador" #formador="ngModel" type="text" name="formador" id="formador" placeholder="Formador del curso">
+          <input [(ngModel)]="curso.formador" #formador="ngModel" type="text" name="formador" id="formador" placeholder="Formador del curso" minlength="8" maxlength="40" required>
           <label> Formador</label>
+          <div *ngIf="formador.touched && !formador.valid">
+              <div *ngIf="formador.errors.required">Formador es requerido.</div>
+              <div *ngIf="formador.errors.minlength">Formador debe ser de al menos {{formador.errors.minlength.requiredLength}} caracteres. </div>
+          </div>
         </div>
         <div class="input-field col s6">
-          <input [(ngModel)]="curso.precio" #precio="ngModel" type="number" name="precio" id="precio" placeholder="Precio del curso">
+          <input [(ngModel)]="curso.precio" #precio="ngModel" type="number" name="precio" id="precio" placeholder="Precio del curso" minlength="2" maxlength="7" required>
           <label> Precio</label>
+          <div *ngIf="precio.touched && !precio.valid">
+              <div *ngIf="precio.errors.required">Precio es requerido.</div>
+              <div *ngIf="precio.errors.minlength">Precio debe ser de al menos {{precio.errors.minlength.requiredLength}} caracteres. </div>
+          </div>
         </div>
         <div class="input-field col s6">
-          <input [(ngModel)]="curso.idioma" #idioma="ngModel" type="text" name="idioma" id="idioma" placeholder="Idioma del curso">
+          <input [(ngModel)]="curso.idioma" #idioma="ngModel" type="text" name="idioma" id="idioma" placeholder="Idioma del curso" minlength="2" maxlength="15" required pattern="Ingles|Español">
           <label> Idioma</label>
+          <div *ngIf="idioma.touched && !idioma.valid">
+              <div *ngIf="idioma.errors.required">Idioma es requerido.</div>
+              <div *ngIf="idioma.errors.minlength">Idioma debe ser de al menos {{idioma.errors.minlength.requiredLength}} caracteres. </div>
+              <div *ngIf="idioma.errors.pattern">Idioma debe ser Ingles o Español</div>
+          </div>
         </div>
         <div class="input-field col s6">
-          <input [(ngModel)]="curso.tecnologia" #tecnologia="ngModel" type="text" name="tecnologia" id="tecnologia" placeholder="Tecnologia del curso">
+          <input [(ngModel)]="curso.tecnologia" #tecnologia="ngModel" type="text" name="tecnologia" id="tecnologia" placeholder="Tecnologia del curso" minlength="2" maxlength="15" required>
           <label> Tecnologia</label>
+          <div *ngIf="tecnologia.touched && !tecnologia.valid">
+              <div *ngIf="tecnologia.errors.required">Tecnologia es requerido.</div>
+              <div *ngIf="tecnologia.errors.minlength">Tecnologia debe ser de al menos {{tecnologia.errors.minlength.requiredLength}} caracteres. </div>
+          </div>
         </div>
         <button type="submit" class="btn waves-effect waves-light orange right">Guardar</button>
       </div>

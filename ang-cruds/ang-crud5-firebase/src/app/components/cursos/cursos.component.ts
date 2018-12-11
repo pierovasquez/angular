@@ -40,9 +40,11 @@ export class CursosComponent implements OnInit {
   // Form methods
   onDeleteCurso(event, curso:CursoInterface) {
     this.cursoservice.deleteCurso(curso);
+    this.clearState();
   }
 
   onUpdateCurso(curso:CursoInterface) {
     this.cursoservice.updateCurso(curso);
+    this.clearState();
   }
 }

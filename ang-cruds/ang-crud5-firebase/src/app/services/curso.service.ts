@@ -17,7 +17,7 @@ export class CursoService {
 
   constructor(public afs: AngularFirestore) { 
     // this.cursos = afs.collection('cursos').valueChanges();
-    this.cursosCollection = afs.collection<CursoInterface>('cursos');
+    this.cursosCollection = afs.collection<CursoInterface>('cursos', ref => ref.orderBy('fecha','desc'));
     this.cursos = this.cursosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as CursoInterface;
@@ -37,7 +37,8 @@ export class CursoService {
   }
 
   deleteCurso(curso:CursoInterface) {
-
+    this.cursoDoc = this.afs.doc(`cursos/${curso.id}`)
+    this.cursoDoc.delete();
   }
 
   updateCurso(curso:CursoInterface) {
