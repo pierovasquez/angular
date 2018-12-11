@@ -1,30 +1,70 @@
-<div>
-    <ul class="collection">
+<div *ngIf="cursos?.length > 0; else noCursos">
+    <ul *ngFor="let curso of cursos" class="collection">
         <li class="collection-item">
-            <a href="" class="secondary-content">
-                <i class="material-icons">mode_edit</i>
-                <i class="material-icons">close</i>
+            <a class="secondary-content">
+                <i *ngIf="editState === false" (click)="editCurso($event,curso)" class="material-icons">mode_edit</i>
+                <i *ngIf="editState && cursoToEdit.id == curso.id" (click)="clearState()" class="material-icons">close</i>
             </a>
-            <strong>Nombre Curso</strong>
+            <h3><strong>{{curso.nombre}}</strong> </h3>
             <br>
-            <blockquote>DESCRIPCION DEL CURSO</blockquote>
+            <blockquote>{{curso.descripcion}}</blockquote>
             <br>
             <span class="my_tag amber">
-                <strong>Precio:</strong>11,77€
+                <strong>Precio:</strong>{{curso.precio}}€
             </span>
             <span class="my_tag amber">
-                <strong>Idioma:</strong>Español
+                <strong>Idioma:</strong>{{curso.idioma}}
             </span>
             <span class="my_tag amber">
-                <strong>Formador:</strong>Formador
+                <strong>Formador:</strong>{{curso.formador}}
             </span>
             <span class="my_tag amber">
-                <strong>PHP</strong>
+                <strong>{{curso.tecnologia}}</strong>
             </span>
             <hr>
-            <div class="container-updateCurso">
-                
+            <div *ngIf="editState && cursoToEdit.id == curso.id" class="container-updateCurso">
+                <form (ngSubmit)="onUpdateCurso(curso)" class="col s6">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre"
+                                placeholder="Nombre del curso">
+                            <label> Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input [(ngModel)]="curso.descripcion" #descripcion="ngModel" type="text" name="descripcion"
+                                id="descripcion" placeholder="Descripcion del curso">
+                            <label> Descripcion</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input [(ngModel)]="curso.formador" #formador="ngModel" type="text" name="formador" id="formador"
+                                placeholder="Formador del curso">
+                            <label> Formador</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input [(ngModel)]="curso.precio" #precio="ngModel" type="number" name="precio" id="precio"
+                                placeholder="Precio del curso">
+                            <label> Precio</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input [(ngModel)]="curso.idioma" #idioma="ngModel" type="text" name="idioma" id="idioma"
+                                placeholder="Idioma del curso">
+                            <label> Idioma</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input [(ngModel)]="curso.tecnologia" #tecnologia="ngModel" type="text" name="tecnologia"
+                                id="tecnologia" placeholder="Tecnologia del curso">
+                            <label> Tecnologia</label>
+                        </div>
+                        <button (click)="onDeleteCurso($event,curso)" class="btn red right"><i class="material-icons right">delete_forever</i> Delete</button>
+                        <button type="submit" class="btn orange"><i class="material-icons right">save</i> Update</button>
+                    </div>
+                </form>
             </div>
         </li>
     </ul>
 </div>
+
+<ng-template #noCursos>
+    <hr>
+    <h5>No existen Cursos</h5>
+</ng-template>

@@ -6,5 +6,5 @@ export interface CursoInterface {
     idioma?:string;
     tecnologia?:string;
     fecha?:any;
-    description?:string;
+    descripcion?:string;
 }

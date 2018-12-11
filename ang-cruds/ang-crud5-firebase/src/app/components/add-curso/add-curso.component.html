@@ -1,30 +1,30 @@
 <div class="card">
   <div class="card-content">
     <span class="card-title"> Nuevo Curso </span>
-    <form class="col s6">
+    <form (ngSubmit)="onGuardarCurso(formNew)" #formNew="ngForm" class="col s6">
       <div class="row">
         <div class="input-field col s6">
-          <input type="text" name="nombre" id="nombre" placeholder="Nombre del curso">
+          <input [(ngModel)]="curso.nombre" #nombre="ngModel" type="text" name="nombre" id="nombre" placeholder="Nombre del curso">
           <label> Nombre</label>
         </div>
         <div class="input-field col s6">
-          <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del curso">
+          <input [(ngModel)]="curso.descripcion" #descripcion="ngModel" type="text" name="descripcion" id="descripcion" placeholder="Descripcion del curso">
           <label> Descripcion</label>
         </div>
         <div class="input-field col s6">
-          <input type="text" name="formador" id="formador" placeholder="Formador del curso">
+          <input [(ngModel)]="curso.formador" #formador="ngModel" type="text" name="formador" id="formador" placeholder="Formador del curso">
           <label> Formador</label>
         </div>
         <div class="input-field col s6">
-          <input type="number" name="precio" id="precio" placeholder="Precio del curso">
+          <input [(ngModel)]="curso.precio" #precio="ngModel" type="number" name="precio" id="precio" placeholder="Precio del curso">
           <label> Precio</label>
         </div>
         <div class="input-field col s6">
-          <input type="text" name="idioma" id="idioma" placeholder="Idioma del curso">
+          <input [(ngModel)]="curso.idioma" #idioma="ngModel" type="text" name="idioma" id="idioma" placeholder="Idioma del curso">
           <label> Idioma</label>
         </div>
         <div class="input-field col s6">
-          <input type="text" name="tecnologia" id="tecnologia" placeholder="Tecnologia del curso">
+          <input [(ngModel)]="curso.tecnologia" #tecnologia="ngModel" type="text" name="tecnologia" id="tecnologia" placeholder="Tecnologia del curso">
           <label> Tecnologia</label>
         </div>
         <button type="submit" class="btn waves-effect waves-light orange right">Guardar</button>

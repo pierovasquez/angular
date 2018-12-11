@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CursoService } from '../../services/curso.service';
+import { CursoInterface } from '../../models/curso';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 @Component({
   selector: 'app-add-curso',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCursoComponent implements OnInit {
 
-  constructor() { }
+  curso: CursoInterface = {
+    nombre: '',
+    formador: '',
+    precio: '',
+    idioma: '',
+    tecnologia: '',
+    fecha: '',
+    descripcion: ''
+  };
+
+  constructor(private cursoservice: CursoService) { }
 
   ngOnInit() {
+
   }
 
+  onGuardarCurso(myForm: NgForm) {
+    const fechaNow = Date.now();
+    this.curso.fecha = fechaNow;
+    this.cursoservice.addCurso(this.curso)
+ }
 }

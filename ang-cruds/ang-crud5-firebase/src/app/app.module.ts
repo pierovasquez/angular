@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 // Firebase
 import { environment} from '../environments/environment';
@@ -25,7 +26,8 @@ import { AddCursoComponent } from './components/add-curso/add-curso.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [CursoService],
   bootstrap: [AppComponent]
