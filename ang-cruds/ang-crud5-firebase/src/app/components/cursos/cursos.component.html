@@ -5,7 +5,7 @@
                 <i *ngIf="editState === false" (click)="editCurso($event,curso)" class="material-icons">mode_edit</i>
                 <i *ngIf="editState && cursoToEdit.id == curso.id" (click)="clearState()" class="material-icons">close</i>
             </a>
-            <h3><strong>{{curso.nombre}}</strong> </h3>
+            <h5><strong>{{curso.nombre}}</strong> </h5>
             <br>
             <blockquote>{{curso.descripcion}}</blockquote>
             <br>
