@@ -1,5 +1,6 @@
 export class MenuItemUtil {
     static counter;
+    
     static getNumberChildren(item: MenuItem): number {
       let result = 0;
       if (item.children) {
