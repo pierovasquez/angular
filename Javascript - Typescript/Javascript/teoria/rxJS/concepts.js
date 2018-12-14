@@ -1,7 +1,7 @@
 // Subscriptions. with subscriptions, you can extract data from observables. There are 2 ways to subscribe:
 // in the component HTML (cats) and in the components in Angular (dogs)
 
-cars: firebaseListObservable<any[]>
+cats: firebaseListObservable<any[]>
 dogs: Array<any[]>
 subscription : Subscription;
 

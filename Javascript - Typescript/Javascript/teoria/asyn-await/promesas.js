@@ -20,3 +20,16 @@ function requestHandler(request,response) {
         res.send(err);
     })
 }
+
+
+// CREATING A PROMISE
+
+let p = new Promise((resolve, reject) => {
+    doAsyncThin((err, value) => {
+        if (err) {
+            reject(err);
+        } else {
+            resolve(value);
+        }
+    });
+});
