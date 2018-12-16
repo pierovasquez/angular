@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { AuthService } from './auth.service';
 import { map } from 'rxjs/operators';
+
+import { BookInterface } from '../models/book-interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataApiService {
+  constructor(private _http: HttpClient, private authService: AuthService) { }
 
   books: Observable<any>;
   book: Observable<any>;
 
   headers: HttpHeaders = new HttpHeaders({
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
     Authorization: this.authService.getToken()
   });
-
-  constructor(private _http: HttpClient, private authService: AuthService) { }
 
   getAllBooks() {
     const url_api = `http://localhost:3000/api/books?filter[where][oferta]=0`;
@@ -36,26 +39,29 @@ export class DataApiService {
     return this.books;
   }
 
-  saveBook(book) {
+  saveBook(book: BookInterface) {
     // TODO: obtener token
     // TODO: not null
     let token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/books?access_token=${token}`;
-    return this._http.post(url_api, book, {headers: this.headers})
-    .pipe(map(data => data));
+    return this._http
+      .post<BookInterface>(url_api, book, { headers: this.headers })
+      .pipe(map(data => data));
   }
 
-  updateBook(book) {
+  updateBook(book: BookInterface) {
     let token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/books?access_token=${token}`;
-    return this._http.put(url_api, book, {headers: this.headers})
-    .pipe(map(data => data));
+    return this._http
+      .put<BookInterface>(url_api, book, { headers: this.headers })
+      .pipe(map(data => data));
   }
 
   deleteBook(id: string) {
     let token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/books?access_token=${token}`;
-    return this._http.delete(url_api, {headers: this.headers})
-    .pipe(map(data => data));
+    return this._http
+      .delete<BookInterface>(url_api, { headers: this.headers })
+      .pipe(map(data => data));
   }
- }
+}
