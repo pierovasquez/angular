@@ -35,10 +35,10 @@ export class PostsComponent implements OnInit {
 
   posts$: Object;
 
-  constructor(private data: DataService) { }
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
-    this.data.getPosts().subscribe(
+    this.dataservice.getPosts().subscribe(
       data => this.posts$ = data
     );
   }
