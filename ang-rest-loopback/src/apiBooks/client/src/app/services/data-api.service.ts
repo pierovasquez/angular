@@ -18,8 +18,7 @@ export class DataApiService {
   book: Observable<any>;
 
   headers: HttpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json',
-    Authorization: this.authService.getToken()
+    'Content-Type': 'application/json'
   });
 
   getAllBooks() {
@@ -42,7 +41,7 @@ export class DataApiService {
   saveBook(book: BookInterface) {
     // TODO: obtener token
     // TODO: not null
-    let token = this.authService.getToken();
+    const token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/books?access_token=${token}`;
     return this._http
       .post<BookInterface>(url_api, book, { headers: this.headers })
@@ -50,7 +49,7 @@ export class DataApiService {
   }
 
   updateBook(book: BookInterface) {
-    let token = this.authService.getToken();
+    const token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/books?access_token=${token}`;
     return this._http
       .put<BookInterface>(url_api, book, { headers: this.headers })
@@ -58,7 +57,7 @@ export class DataApiService {
   }
 
   deleteBook(id: string) {
-    let token = this.authService.getToken();
+    const token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/books?access_token=${token}`;
     return this._http
       .delete<BookInterface>(url_api, { headers: this.headers })
