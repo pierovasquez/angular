@@ -6,15 +6,13 @@
           <div class="card">
             <div class="card-body">
               <p>
-                <img class="img-fluid" src="https://dummyimage.com/300x300/000/fff" alt="">
+                <img class="img-fluid" src="{{book.portada}}" alt="{{book.titulo}}">
               </p>
-              <h4 class="card-title">Titulo</h4>
+              <h4 routerLink="/book/{{book.id}}" class="card-title">{{book.titulo}}</h4>
               <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, animi quaerat perferendis enim
-                repudiandae totam necessitatibus accusamus alias molestiae et quibusdam voluptatibus dolor, nihil, ex
-                dolorum cumque odio similique expedita.
+                {{book.descripcion}}
               </p>
-              <a href="#" class="btn btn-block btn-primary" target="_blank">Buy</a>
+              <a href="{{book.link_amazon}} " class="btn btn-block btn-primary" target="_blank">Buy</a>
             </div>
           </div>
         </div>
