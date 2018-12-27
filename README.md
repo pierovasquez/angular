@@ -5,15 +5,15 @@
 
 # Proyectos hechos con Angular 5/6.
 
-   - ang-crud-firebase-toast: Proyecto CRUD echo con Angular, Bootstrap 4, Firebase y toastr.
-   - website : Proyecto echo con Angular, Bootstrap.
-   - ang-cruds : Proyectos CRUDs, estan hechos sin uso de base de datos.
-   
+   - ang-agGrid: Proyecto en el cual se explica como funciona agGrid.
+   - ang-crud-firebase-toastr: Proyecto CRUD echo con Angular, Bootstrap 4, Firebase y toastr.
+   - ang-cruds : Proyectos CRUDs.
    - ang-forms : Proyecto simple con two way data binding.
    - ang-json : Proyecto simple con routing.
-
+   - website : Proyecto echo con Angular, Bootstrap.
 
    Capturas de ejemplo del proyecto en el directorio : ../src/assets/
+
 # Comandos git para subir proyectos.
 
   - git init.
