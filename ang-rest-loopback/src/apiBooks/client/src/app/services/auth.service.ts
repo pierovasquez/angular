@@ -33,7 +33,7 @@ export class AuthService {
       .pipe(map(data => data));
   }
 
-  setUser(user: UserInterface): void {
+  setUser(user): void {
     const user_string = JSON.stringify(user);
     localStorage.setItem('currentUser', user_string);
   }
@@ -49,7 +49,7 @@ export class AuthService {
   getCurrentUser(): UserInterface {
     const user_string = localStorage.getItem('currentUser');
     if (!isNullOrUndefined(user_string)) {
-      let user: UserInterface = JSON.parse(user_string);
+      const user: UserInterface = JSON.parse(user_string);
       return user;
     } else {
       return null;
