@@ -27,13 +27,13 @@ export class AuthService {
       .pipe(map(data => data));
   }
 
-  loginUser(email: string, password: string) {
+  loginUser(email: string, password: string): Observable<any> {
     const url_api = `http://localhost:3000/api/Users/login?include=user`;
     return this._http.post<UserInterface>(url_api, { email, password }, { headers: this.headers })
       .pipe(map(data => data));
   }
 
-  setUser(user): void {
+  setUser(user: UserInterface): void {
     const user_string = JSON.stringify(user);
     localStorage.setItem('currentUser', user_string);
   }
@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   getToken() {
-    localStorage.getItem('accessToken');
+    return localStorage.getItem('accessToken');
   }
 
   getCurrentUser(): UserInterface {
