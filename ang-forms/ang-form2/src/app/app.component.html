@@ -1,0 +1,54 @@
+<form>
+  <h1>Form 1</h1>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input ngModel minlength="3" maxlength="10" pattern="banana" name="firstName" id="firstName" type="text" class="form-control"
+      #firstName="ngModel" required>
+    <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+      <div *ngIf="firstName.errors.required">First name is required</div>
+      <div *ngIf="firstName.errors.minlength">First name should be minimum 3 characters</div>
+      <div *ngIf="firstName.errors.pattern">First name doesn't match pattern</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea ngModel name="" id="comment" cols="30" rows="10" class="form-control"></textarea>
+  </div>
+  <button class="btn btn-primary" (click)="log(firstName)">Submit</button>
+</form>
+<div class="container-fluid">
+  <form action="">
+    <h1>Form 2</h1>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" name="phone" id="phone">
+    </div>
+    <div class="form-group">
+      <select name="" id="" class="custom-select">
+        <option selected> I am interested in</option>
+        <option *ngFor="let topic of topics"> {{topic}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="">Time preference</label>
+      <div class="form-check">
+        <input type="radio" name="timePreference" id="timePreference" value="morning">
+        <label for="">Morning (9AM - 12PM)</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="timePreference" id="timePreference2" value="evening">
+        <label for="">Evening (5PM - 8PM)</label>
+      </div>
+    </div>
+    <button type="submit">Consola</button>
+  </form>
+</div>
+<router-outlet></router-outlet>
