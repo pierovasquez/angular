@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // Services
 import { DataApiService } from './services/data-api.service';
@@ -36,7 +36,8 @@ import { Page404Component } from './components/page404/page404.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DataApiService],
   bootstrap: [AppComponent]

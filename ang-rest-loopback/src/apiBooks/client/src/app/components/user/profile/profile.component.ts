@@ -1,3 +1,5 @@
+import { UserInterface } from './../../../models/user-interface';
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user: UserInterface;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.user = this.authService.getCurrentUser();
+    console.log(this.user);
   }
 
 }

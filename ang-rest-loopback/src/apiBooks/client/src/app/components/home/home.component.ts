@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   getListBooks() {
-    this.dataApi.getAllBooks()
+    this.dataApi.getNotOffers()
     .subscribe((books: BookInterface) => {
       this.books = books;
       console.log(books); });

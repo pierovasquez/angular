@@ -1,4 +1,4 @@
-# Data Binding - Data Binding Overview
+# Services and Http - Using a SorterService
 
 Quick start:
 

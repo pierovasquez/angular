@@ -27,7 +27,7 @@ export class AuthService {
       .pipe(map(data => data));
   }
 
-  loginUser(email: string, password: string) {
+  loginUser(email: string, password: string): Observable<any> {
     const url_api = `http://localhost:3000/api/Users/login?include=user`;
     return this._http.post<UserInterface>(url_api, { email, password }, { headers: this.headers })
       .pipe(map(data => data));
@@ -43,13 +43,13 @@ export class AuthService {
   }
 
   getToken() {
-    localStorage.getItem('accessToken');
+    return localStorage.getItem('accessToken');
   }
 
   getCurrentUser(): UserInterface {
     const user_string = localStorage.getItem('currentUser');
     if (!isNullOrUndefined(user_string)) {
-      let user: UserInterface = JSON.parse(user_string);
+      const user: UserInterface = JSON.parse(user_string);
       return user;
     } else {
       return null;

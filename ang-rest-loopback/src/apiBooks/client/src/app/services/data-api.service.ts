@@ -22,6 +22,10 @@ export class DataApiService {
   });
 
   getAllBooks() {
+    const url_api = `http://localhost:3000/api/books`;
+    return this._http.get(url_api);
+  }
+  getNotOffers() {
     const url_api = `http://localhost:3000/api/books?filter[where][oferta]=0`;
     return this._http.get(url_api);
   }
