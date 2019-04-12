@@ -9,7 +9,7 @@ import { ICustomer } from '../shared/interfaces';
 })
 export class CustomersComponent implements OnInit {
     title: string;
-    people: any[];
+    people: ICustomer[];
     
     constructor(private dataService: DataService) {}
     
